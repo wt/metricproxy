@@ -10,6 +10,8 @@ install:
   - sudo dpkg -i shellcheck_0.3.7-1_amd64.deb
   - go get github.com/stretchr/testify/mock
   - go get github.com/tools/godep
+  - go get github.com/axw/gocov/gocov
+  - go get github.com/mattn/goveralls
   - go get -u github.com/cep21/goverify
   - gem install mdl
   - go get -d -v ./... && go build -v ./...
@@ -17,3 +19,4 @@ install:
 script:
   - export PATH=$HOME/gopath/bin:$PATH
   - ./travis_check.sh
+  - goveralls -service=travis-ci
